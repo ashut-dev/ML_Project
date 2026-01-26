@@ -29,3 +29,14 @@ See `docs/round_context.md` for how each topic influenced the weekly query choic
 - `datasheet.md` and `model_card.md` (mini-lesson frameworks)
 - `scripts/make_portal_strings.py` (working / reproducibility)
 
+
+## Code: how queries and outputs were handled
+The capstone portal is the only source of black-box outputs. This repo therefore cannot reproduce outputs from code.
+What is reproducible is the **query selection logic** given the logged history.
+
+- Load history into (X,y): `python scripts/01_load_history.py`
+- BO-like EI proposer: `python scripts/02_baseline_bo.py --func 8`
+- SVM good/bad region classifier: `python scripts/03_svm_classifier_regions.py --func 7`
+- Neural surrogate refinement: `python scripts/04_nn_surrogate.py --func 8`
+- Clustering + PCA guided proposal: `python scripts/05_clustering_pca.py --func 8`
+- RL/MAB region policy (educational): `python scripts/06_rl_bandit_policy.py --func 8`
