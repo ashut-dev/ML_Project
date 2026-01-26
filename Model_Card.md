@@ -1,30 +1,19 @@
-Model Name - Imperial ML Course BBO Optimization V1.0
+# Model Card — Iterative BBO Strategy (13 Rounds)
 
-Overview - This is a heuristic and surrogate-informed optimisation approach designed for black-box functions with limited evaluation budgets. It combines exploration, trend-following and local refinement across multiple rounds.
+## Overview
+Sequential query strategy for maximising 8 black-box functions with limited evaluations.
 
-Intended Use - The approach is suitable for:
-•	Expensive black-box optimisation problems
-•	Educational demonstrations of Bayesian-style optimisation
-•	Low-sample optimisation scenarios
-It should not be used for:
-•	High-stakes decision-making without uncertainty modelling
-•	Problems requiring guaranteed global optimality
+## Intended use
+Educational optimisation with expensive evaluations; supports analysis of exploration vs exploitation. Avoid safety-critical use without monitoring.
 
-Strategy Details - Across ten rounds, the strategy evolved as follows:
-•	Rounds 1–3: Broad exploration to understand the search space
-•	Rounds 4–6: Trend-based refinement and cautious exploitation
-•	Rounds 7–10: Fine-grained local optimisation with micro-adjustments
-Decisions were guided by observed improvements, output stability and sensitivity to small input changes.
+## Strategy evolution (summary)
+Early space-filling (BO) → boundary focus (LR/SVM) → non-linear surrogate mindset (NN/DL) → coarse-to-fine refinement (CNN) → stability via tuning → structured prompting (GenAI) → transparency improvements → cluster tightening → PCA-guided refinement.
 
-Performance - Performance was evaluated qualitatively using:
-•	Improvement over rounds
-•	Stability of outputs
-•	Responsiveness to local refinements
-No single numeric benchmark was used, as the true optima are unknown.
+## Performance reporting
+See `reports/best_so_far_by_round.csv` (per-function reward and best-so-far).
 
-Assumptions and Limitations - Key assumptions include local smoothness of functions and relevance of recent trends. Limitations include susceptibility to local optima, uneven search-space coverage and reliance on heuristic judgement rather than formal uncertainty estimates
+## Assumptions & limitations
+Limited evaluations in high dimensions, local optima risk, and dependence on heuristic/model assumptions.
 
-Ethical Considerations - Transparency in documenting decisions supports reproducibility and learning. The model card clarifies assumptions and constraints, helping prevent misuse or over-interpretation of results in real-world contexts.
-
-Reflection On Documentation - The current structure balances clarity and completeness. Adding excessive detail may reduce readability without improving understanding. The datasheet and model card together provide sufficient context for peers and facilitators to interpret, reproduce and critique the approach.
-
+## Transparency
+Round logs + context doc + scripts enable reproducibility.
