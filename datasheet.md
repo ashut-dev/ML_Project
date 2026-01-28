@@ -1,7 +1,7 @@
 # Datasheet — BBO Capstone Dataset (13 Rounds)
 
 ## Motivation
-Created to document my sequential black-box optimisation queries and rewards across 8 functions, under a strict evaluation budget.
+This dataset was created incrementally as part of a controlled educational optimisation exercise, where each data point corresponds to a deliberate experimental decision informed by weekly learning objectives.
 
 ## Composition
 - 13 rounds, 8 functions per round (2D → 8D).
