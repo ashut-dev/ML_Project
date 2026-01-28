@@ -44,5 +44,95 @@ The optimisation strategy evolves week-by-week, directly reflecting the programm
 
 Each round produces **exactly one portal-ready query per function**, submitted and evaluated before proceeding to the next iteration.
 
-A detailed narrative explaining how each learning theme influenced query design is provided in:
+A detailed narrative explaining how each learning theme influenced query design is provided in:docs/round_context.md
+
+---
+
+## 3. Primary Assessment Artefacts: Round-wise Notebooks
+
+The **core evidence for assessment** is contained in the Jupyter notebooks under the `notebooks/` directory.
+
+Each notebook corresponds to one round and documents:
+
+- Query selection logic  
+- Returned black-box outputs  
+- Best-so-far tracking  
+- Reflective reasoning behind decisions  
+
+| Round | Notebook |
+|------|----------|
+| 01 | notebooks/round01.ipynb |
+| 02 | notebooks/round02.ipynb |
+| 03 | notebooks/round03.ipynb |
+| 04 | notebooks/round04.ipynb |
+| 05 | notebooks/round05.ipynb |
+| 06 | notebooks/round06.ipynb |
+| 07 | notebooks/round07.ipynb |
+| 08 | notebooks/round08.ipynb |
+| 09 | notebooks/round09.ipynb |
+| 10 | notebooks/round10.ipynb |
+| 11 | notebooks/round11.ipynb |
+| 12 | notebooks/round12.ipynb |
+| 13 | notebooks/round13.ipynb |
+
+---
+
+## 4. Data Organisation
+
+All portal interactions are logged transparently.
+
+data/
+└── roundXX/
+├── inputs.txt # Submitted query points
+└── outputs.txt # Returned black-box outputs
+
+data/
+└── roundXX/
+├── inputs.txt # Submitted query points
+└── outputs.txt # Returned black-box outputs
+
+
+The capstone portal is the **only source of function evaluations**.  
+As a result, numerical outputs cannot be regenerated offline; however, the **decision logic used to select queries is fully documented and reproducible**.
+
+---
+
+## 5. Supporting Code and Methods
+
+Scripts under `scripts/` support analysis, visualisation and reasoning:
+
+- `01_load_history.py` – load cumulative query history  
+- `02_baseline_bo.py` – Bayesian-style expected improvement baseline  
+- `03_svm_classifier_regions.py` – region classification using SVMs  
+- `04_nn_surrogate.py` – neural surrogate modelling  
+- `05_clustering_pca.py` – clustering and PCA for structure discovery  
+- `06_rl_bandit_policy.py` – educational RL / MAB framing  
+- `make_portal_strings.py` – portal submission formatting  
+
+These scripts **support the notebooks** and demonstrate method application, not offline reproduction of portal outputs.
+
+---
+
+## 6. Documentation for Transparency and Reproducibility
+
+- `datasheet.md` – dataset documentation (Mini-lesson 21.1)  
+- `model_card.md` – optimisation approach description (Mini-lesson 21.2)  
+- `docs/round_context.md` – round-by-round learning rationale  
+- `reports/best_so_far_by_round.csv` – performance tracking  
+
+Together, these artefacts provide a **clear audit trail** from:
+
+> learning objective → modelling choice → query decision → observed outcome
+
+---
+
+## 7. Key Takeaways
+
+- Optimisation performance improves as model understanding matures  
+- Later rounds prioritise structure discovery and interpretability  
+- The project mirrors real-world ML workflows, where strategy adapts as data accumulates  
+- Transparency and documentation are treated as first-class outcomes  
+
+---
+
 
